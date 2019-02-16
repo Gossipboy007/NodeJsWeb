@@ -1,0 +1,69 @@
+﻿doctype html
+html
+  head
+    title
+  body
+    table.table
+      thead
+        tr
+          th(scope='col') 排名
+          th(scope='col') 队伍名称
+          th(scope='col') 得分
+      tbody
+        -for(var i=0;i<len;i++){
+        tr
+          th(scope='row')
+            b #{i+1}
+          td
+            b #{users[i]}说：
+          td
+            b #{cons[i]}
+            -}
+                  -for(var i=0;i<len;i++){
+      .container-fluid.shadow-border.comment-board
+        .row
+          .container-fluid.comment-header
+            span.comment-user #{users[i]}
+            button.btn.btn-xs.btn-trans.pull-right(data-toggle='collapse', data-target='#comment-hid-2')
+              span.glyphicon.glyphicon-play
+        .container-fluid
+          p.comment-text
+          |  #{cons[i]}
+        .row
+          .container-fluid.comment-footer
+          span.comment-ip 183.220.99.*
+            span.comment-location Sichuan, China
+            span.comment-datetime 2018-12-12 12:12
+            .btn-group.btn-group-xs.pull-right
+              button.btn.btn-default.btn-trans.dropdown-toggle(data-toggle='dropdown')
+                span.glyphicon.glyphicon-cog
+              ul.dropdown-menu
+                li
+                  a(href='#') 加入黑名单
+                li
+                  a(href='#') 举报
+            .btn-group.btn-group-xs.pull-right
+              button.btn.btn-default.btn-trans
+                span.glyphicon.glyphicon-thumbs-up
+                |  999
+              button.btn.btn-default.btn-trans
+                span.glyphicon.glyphicon-thumbs-down
+                |  1
+        #comment-hid-2.container-fluid.collapse.comment-hid
+          div
+            .row
+              .col-md-10.col-md-offset-1
+                span.comment-user Reply01
+                span.comment-text Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            .row
+              .col-md-10.col-md-offset-1.comment-footer
+                span.datetime 2018-12-12 00:00
+          div
+            .row
+              .col-md-10.col-md-offset-1
+                span.comment-user Reply02
+                span.comment-text 这是第二条回复
+            .row
+              .col-md-10.col-md-offset-1.comment-footer
+                span.datetime 2018-12-12 00:00
+                -}

@@ -1,0 +1,255 @@
+﻿-var who
+-var aftername
+-if(name=='登录'){
+-name_1='login';
+-aftername='#myModal'
+-out='help';
+-who='游客'
+-}else{
+-name_1='user';
+-out='loginout';
+-aftername='user'
+-who=name
+-}
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    link(href='https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+    title Comment
+    link(rel='shortcut icon', href='/img/favicon_3.ico')
+    link(rel='bookmark', href='/img/favicon_3.ico')
+  body
+    .navbar.navbar-default.navbar-static-top
+      ul.nav.navbar-nav
+        li
+          a(href='/')
+            span.glyphicon.glyphicon-home
+            | abCTF
+        li
+          a(href='problems') 题目列表
+        li
+          a(href='rank') 排行榜
+        li.active
+          a(href='comment') 留言板
+      ul.nav.navbar-nav.pull-right
+        li
+          a(href=aftername, data-toggle='modal')
+            span.glyphicon.glyphicon-user
+            |  #{name}
+        li
+          a(href=out)
+            span.glyphicon.glyphicon-log-in
+            |  #{outuser}
+    .container
+      -for(var i=len-1;i>=0;i--){
+      -var a='#comment-hid-'
+      -var d='comment-hid-'
+      -var b=i+2+''
+      -var c=a+b
+      -var e=d+b
+        .container-fluid.shadow-border.comment-board
+          .row
+            .container-fluid.comment-header
+              span.comment-user #{users[i]}
+              button.btn.btn-xs.btn-trans.pull-right(data-toggle='collapse', data-target=c)
+                span.glyphicon.glyphicon-play
+          .container-fluid
+            p.comment-text
+              |  #{cons[i]}
+          .row
+            .container-fluid.comment-footer
+              span.comment-ip 183.220.99.*
+              span.comment-location Sichuan, China
+              span.comment-datetime #{time[i]}
+              .btn-group.btn-group-xs.pull-right
+                button.btn.btn-default.btn-trans.dropdown-toggle(data-toggle='dropdown')
+                  span.glyphicon.glyphicon-cog
+                ul.dropdown-menu
+                  li
+                    a(href='#') 加入黑名单
+                  li
+                    a(href='#') 举报
+              .btn-group.btn-group-xs.pull-right
+                button.btn.btn-default.btn-trans
+                  span.glyphicon.glyphicon-thumbs-up
+                  |  999
+                button.btn.btn-default.btn-trans
+                  span.glyphicon.glyphicon-thumbs-down
+                  |  1
+        div.collapse.container-fluid.comment-hid(id=e)
+          div
+            .row
+              .col-md-10.col-md-offset-1
+                span.comment-user Reply01
+                span.comment-text Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            .row
+              .col-md-10.col-md-offset-1.comment-footer
+                span.datetime 2018-12-12 00:00
+          div
+            .row
+              .col-md-10.col-md-offset-1
+                span.comment-user Reply02
+                span.comment-text 这是第二条回复
+            .row
+              .col-md-10.col-md-offset-1.comment-footer
+                span.datetime 2018-12-12 00:00
+                -}
+    .container.comment-submit
+      form.form-horizontal(action='', role='form' method='post')
+        .form-group
+          label.col-md-1(for='comment-textarea') 发表留言
+          .col-md-11
+            textarea#comment-textarea.form-control(rows='4', placeholder='Comment...',name='comments')
+            input(type='hidden', name='username', value=who)
+            input.time(type='hidden', name='time')
+        .form-group
+          button.btn.btn-default.col-md-offset-6 Submit
+    .navbar.navbar-default.navbar-fixed-bottom
+      .container.text-center
+        h4
+          span.glyphicon.glyphicon-copyright-mark
+          |  Team abCTF
+    #myModal.modal.fade(aria-labelledby='myTitle', aria-hidden='true', style='display: none;')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(data-dismiss='modal', aria-hidden='true') ×
+            h4#myTitle.modal-title Log in
+          .modal-body
+            .container-fluid
+              .form-group
+                input.form-control(type='text', placeholder='Username',name='trueusername')
+              .form-group
+                input.form-control(type='password', placeholder='Password')
+              #alert-login.collapse
+                .alert.alert-danger 用户名或密码不正确！
+              #alert-reg.collapse
+                .alert.alert-danger 您的输入为空！请检查！
+              #alert-regsuc.collapse
+                .alert.alert-success 注册成功！请登录！即将跳转！
+              #alert-logsuc.collapse
+                .alert.alert-success 登录成功！即将跳转！
+              .row
+                .col-md-offset-8
+                  button.btn.btn-success 登录
+                  button.btn.btn-warning 注册
+                  button#btn-log-togggle.collapse(data-toggle='collapse', data-target='alert-login')
+                  button#btn-reg-togggle.collapse(data-toggle='collapse', data-target='alert-reg')
+                  button#btn-regsuc-togggle.collapse(data-toggle='collapse', data-target='alert-regsuc')
+                  button#btn-logsuc-togggle.collapse(data-toggle='collapse', data-target='alert-logsuc')
+  script(src='https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
+  script.
+    $(function(){
+    autoNav();
+    });
+    //解决底部自动导航的问题
+    function autoNav(){
+    //获取内容的高度
+    var bodyHeight = $("body").height();
+    //获取底部导航的高度
+    var navHeight = $(".navbar").height();
+    //获取显示屏的高度
+    var iHeight = document.documentElement.clientHeight||document.body.clientHeight;
+    //如果内容的高度大于（窗口的高度 - 导航的高度）,z则需要添加一个div，设置其高度
+    if(bodyHeight > (iHeight - navHeight)){
+    $("body").append('<div style="height: '+navHeight+'px"></div>');
+    }
+    }
+  script(type='text/javascript').
+    function getFormatDate(){
+    var nowDate = new Date()
+    var year = nowDate.getFullYear()
+    var month = nowDate.getMonth() + 1 < 10 ? "0" + (nowDate.getMonth() + 1) : nowDate.getMonth() + 1
+    var date = nowDate.getDate() < 10 ? "0" + nowDate.getDate() : nowDate.getDate()
+    var hour = nowDate.getHours()< 10 ? "0" + nowDate.getHours() : nowDate.getHours()
+    var minute = nowDate.getMinutes()< 10 ? "0" + nowDate.getMinutes() : nowDate.getMinutes()
+    var second = nowDate.getSeconds()< 10 ? "0" + nowDate.getSeconds() : nowDate.getSeconds()
+    return year + "-" + month + "-" + date+" "+hour+":"+minute+":"+second
+    }
+    $(function(){
+    $(".col-md-offset-6").click(function(){
+    var str = getFormatDate();
+    $("input[ name='time' ]").val(str)
+    })
+    })
+  script(type='text/javascript').
+    $(function() {
+    $(".btn-warning").on('click', function(req,res) {  
+    var username = $("input[name='trueusername']").val();   
+    var password = $("input[ type='password' ]").val();
+    $.post("/reg", { 
+    username: username,
+    password:password,
+    }, function(res) {
+    $.ajax({
+    url: '/comment',
+    type: 'get',
+    success: function(data) {
+    if(res.data=='错误！'){
+    $('#btn-reg-toggle').delay(500).click()
+    $('#alert-reg').delay(500).fadeIn()
+    $('#btn-reg-toggle').delay(500).click()
+    $('#alert-reg').delay(500).fadeOut()
+    }else{
+    $('#btn-regsuc-toggle').delay(500).click()
+    $('#alert-regsuc').delay(500).fadeIn()
+    $('#btn-regsuc-toggle').delay(1000).click()
+    $('#alert-regsuc').delay(500).fadeOut()
+    setTimeout("window.location.reload()",4000);
+    }
+    }
+    })
+    })
+    })
+    })
+  script(type='text/javascript').
+    $(function() {
+    $(".btn-success").on('click', function(req,res) {  
+    var username = $("input[name='trueusername']").val();   
+    var password = $("input[ type='password' ]").val();
+    $.post("/login", { 
+    username: username,
+    password:password,
+    }, function(res) {
+    $.ajax({
+    url: '/',
+    type: 'get',
+    success: function(data) {
+    if(res.data=='用户名或密码不正确！'){
+    $('#btn-log-toggle').delay(500).click()
+    $('#alert-login').delay(500).fadeIn()
+    $('#btn-log-toggle').delay(500).click()
+    $('#alert-login').delay(500).fadeOut()
+    }else{
+    $('#btn-logsuc-toggle').delay(500).click()
+    $('#alert-logsuc').delay(500).fadeIn()
+    $('#btn-logsuc-toggle').delay(500).click()
+    $('#alert-logsuc').delay(500).fadeOut()
+    setTimeout("window.location.reload()",4000);
+    }
+    }
+    })
+    })
+    })
+    })
+//  script(type='text/javascript').
+    $(function() {
+    $(".btn-trans").on('click', function(req,res) {  
+    var username = $("input[ type='text' ]").val();   
+    var thumb=1;
+    $.post("/givethumb", { 
+    username: username,
+    thumb:thumb,
+    }, function(res) {
+    $.ajax({
+    url: '/comment',
+    type: 'get',
+    success: function(data) {
+    }
+    })
+    })
+    })
+    })

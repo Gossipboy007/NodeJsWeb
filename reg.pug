@@ -1,0 +1,54 @@
+﻿extends layout
+block foot
+  doctype html
+  html
+    head
+      meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no')
+      title 注册
+      link(href='../stylesheets/bootstrap.min.css', title='', rel='stylesheet')
+      link(title='orange', href='../stylesheets/login.css', rel='stylesheet', type='text/css')
+    body
+      div(style='height:1px;')
+      .login
+        header
+          h1 注册
+        .sr
+          form(method='post', action='http://127.0.0.1:1337/reg',onsubmit = "return check();")
+            .name
+              label
+                i.sublist-icon.glyphicon.glyphicon-user
+              input#name.name_inp(type='text', placeholder='这里输入注册名',name='username')
+              span
+                font#error(color='red') #{error}
+            .name
+              label
+                i.sublist-icon.glyphicon.glyphicon-pencil
+              input#pwd.name_inp(type='password', placeholder='这里输入密码',name='pass')
+              span
+                font#error_1(color='red')
+            input(type='submit', value='注册', onclick='check()')
+    div(style="text-align:center;margin:-150px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#ffffff")
+    script.
+        function check() {
+        var temp = true;
+        var name = document.getElementById("name").value;
+        var passcode = document.getElementById("pwd").value;
+        if (name == "") {
+        document.getElementById("error").innerHTML = "请输入用户名！";
+        temp = false;
+        }
+        if (temp == true)
+        document.getElementById("error").innerHTML = "";
+        if (passcode == "") {
+        document.getElementById("error_1").innerHTML = "未输入密码！";
+        temp = false;
+        }
+        else if (!(passcode.length >= 6 && passcode.length <= 20)) {
+        document.getElementById("error_1").innerHTML = "密码长度应在[6,20]的区间中！";
+        temp = false;
+        }
+        if (temp == true)
+        document.getElementById("error_1").innerHTML = "";
+        return temp;
+        }

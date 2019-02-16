@@ -1,0 +1,101 @@
+﻿doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Login Page - Product Admin Template
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:400,700')
+    // https://fonts.google.com/specimen/Open+Sans
+    link(rel='stylesheet', href='stylesheets/fontawesome.min.css')
+    // https://fontawesome.com/
+    link(rel='stylesheet', href='stylesheets/bootstrap.min.css')
+    // https://getbootstrap.com/
+    link(rel='stylesheet', href='stylesheets/templatemo-style.css')
+  body
+    div
+      nav.navbar.navbar-expand-xl
+        .container.h-100
+          a.navbar-brand(href='index.html')
+            h1.tm-site-title.mb-0 LeafCTF
+          button.navbar-toggler.ml-auto.mr-0(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+            i.fas.fa-bars.tm-nav-icon
+          #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.mx-auto.h-100
+              li.nav-item
+                a.nav-link(href='index.html')
+                  i.fas.fa-tachometer-alt
+                  |  记分板
+                  span.sr-only (current)
+              li.nav-item.dropdown
+                a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  i.far.fa-file-alt
+                  span
+                    | 题目列表
+              li.nav-item
+                a.nav-link(href='products.html')
+                  i.far.fa-user
+                  |  队伍
+              li.nav-item
+                a.nav-link(href='accounts.html')
+                  i.fas.fa-shopping-cart
+                  |  Accounts
+              li.nav-item.dropdown
+                a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                  i.fas.fa-cog
+                  span
+                    | Settings
+    .container.tm-mt-big.tm-mb-big
+      .row
+        .col-12.mx-auto.tm-login-col
+          .tm-bg-primary-dark.tm-block.tm-block-h-auto
+            .row
+              .col-12.text-center
+                h2.tm-block-title.mb-4 Welcome to LeafCTF, Login!
+            .row.mt-2
+              .col-12
+                form.tm-login-form(action='http://127.0.0.1:1337/login', method='post',onsubmit='return check()')
+                  .form-group
+                    label(for='username') 用户名
+                    input#username.form-control.validate(name='username', type='text', value='', required='')
+                    span
+                      font#error(color='red') #{error}
+                  .form-group.mt-3
+                    label(for='password') 密码
+                    input#password.form-control.validate(name='pass', type='password', value='', required='')
+                    span
+                      font#error_1(color='red')
+                  .form-group.mt-4
+                    button.btn.btn-primary.btn-block.text-uppercase(type='submit') 登录
+                    button.mt-5.btn.btn-primary.btn-block.text-uppercase 忘记密码?
+    script.
+        function check() {
+        var temp = true;
+        var name = document.getElementById("name").value;
+        var passcode = document.getElementById("pwd").value;
+        if (name == "") {
+        document.getElementById("error").innerHTML = "请输入用户名！";
+        temp = false;
+        }
+        if (temp == true)
+        document.getElementById("error").innerHTML = "";
+        if (passcode == "") {
+        document.getElementById("error_1").innerHTML = "未输入密码！";
+        temp = false;
+        }
+        if (temp == true)
+        document.getElementById("error_1").innerHTML = "";
+        if (!(passcode.length >= 6 && passcode.length <= 20)) {
+        document.getElementById("error_1").innerHTML = "密码长度应在[6,20]的区间中！";
+        temp = false;
+        }
+        else if (passcode == name) {
+        document.getElementById("error_1").innerHTML = "密码不能与用户名相同！";
+        temp = false;
+        }
+        return temp;
+        }
+    script(src='js/jquery-3.3.1.min.js')
+    // https://jquery.com/download/
+    script(src='javascripts/bootstrap.min.js')
+    // https://getbootstrap.com/

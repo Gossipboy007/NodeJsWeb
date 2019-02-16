@@ -1,0 +1,39 @@
+﻿-var name_1;
+-var out;
+-if(name=='登录'){
+-name_1='login';
+-out='reg';
+-}else{
+-name_1='user';
+-out='loginout';
+-}
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    link(href='https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='stylesheets/style_rank.css')
+    title Rank
+  body
+    .navbar.navbar-default.navbar-static-top(style='margin-bottom: 0')
+      ul.nav.navbar-nav
+        li
+          a(href='./index.html')
+            span.glyphicon.glyphicon-home
+            | abCTF
+        li
+          a(href='./problems.html') 题目列表
+        li.active
+          a(href='./rank.html') 排行榜
+        li
+          a(href='./comment.html') 评论区
+      ul.nav.navbar-nav.pull-right
+        li
+          a(href='#myModal', data-toggle='modal')
+            span.glyphicon.glyphicon-log-in
+            |  #{outuser}
+        li
+          a(href='./reg.html')
+            span.glyphicon.glyphicon-user
+            |  #{name}
+        block foot

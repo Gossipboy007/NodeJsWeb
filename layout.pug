@@ -1,0 +1,65 @@
+﻿-var name_1;
+-var out;
+-if(name=='登录'){
+-name_1='login';
+-out='reg';
+-}else{
+-name_1='user';
+-out='loginout';
+-}
+
+doctype html
+html
+  head
+    style.
+      body {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      }
+      li img{
+      float:right;
+      }
+    title MircoBlog
+    link(rel='stylesheet', href='https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
+  body
+      .navbar.navbar-fixed-top.navbar-inverse(role='navigation')
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#') LeafCTF
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a(href='/')
+                  span.glyphicon.glyphicon-home
+                  |  主页
+              
+              li
+                a(href='hello')
+                  span.glyphicon.glyphicon-heart
+                  |  帮助
+              li
+                a(href=name_1)
+                  span.glyphicon.glyphicon-user
+                  |  #{name}
+              li 
+                a(href=out)
+                  span.glyphicon.glyphicon-plus
+                  |  #{outuser}
+              li
+                img(src='https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2107635011,1346000192&fm=26&gp=0.jpg', width='300',height='50px')
+
+        #container.container
+        hr
+        block foot
+        footer
+            p
+            a(href='http://www.leaflove.cn') BYLEAFCTF
+            | 2018
+        script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+        scrtpt(src='../public/javascripts/bootstrap.js')

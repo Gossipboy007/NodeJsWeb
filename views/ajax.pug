@@ -1,0 +1,33 @@
+﻿-var status
+-if(stat==1){
+-status=1;
+-}else{
+-status=0;}
+doctype html
+html
+  head
+  body
+    form#form()
+      label 输入：
+      input(type='text', name='flag')
+      input(type='hidden',name='score',value='500')
+      input#button.flag(type='button',value='提交',disabled=false)
+    span
+      font#error(color='red') #{info}
+    span
+      font#error_1(color='red') #{stat}
+  script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+  script(type='text/javascript').
+    $(function() {
+    $(".flag").on('click', function() {  
+    var flags = $("input:nth-of-type(1)").val();   
+    var scores = $("input:nth-of-type(2)").val(); 
+    $.post("/ajax", { 
+    flag: flags,
+    score:scores,
+    }, function(res) {
+    window.location.reload();
+    })
+    })
+    })
+    $('#error').delay(3000).fadeOut();

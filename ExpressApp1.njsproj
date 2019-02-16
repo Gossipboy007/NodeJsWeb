@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>ExpressApp1</Name>
+    <RootNamespace>ExpressApp1</RootNamespace>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>39c2f19d-89d5-438a-8fde-87ff138c18fc</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>app.js</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app.js" />
+    <Compile Include="public\javascripts\bootstrap.js" />
+    <Compile Include="public\javascripts\bootstrap.min.js" />
+    <Compile Include="public\javascripts\Chart.min.js" />
+    <Compile Include="public\javascripts\jquery-3.3.1.min.js" />
+    <Compile Include="public\javascripts\jquery.js" />
+    <Compile Include="public\javascripts\moment.min.js" />
+    <Compile Include="public\javascripts\tooplate-scripts.js" />
+    <Compile Include="routes\index.js" />
+    <Compile Include="routes\users.js" />
+    <Compile Include="db.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="settings.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="views\settings.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="package.json" />
+    <Content Include="public\img\favicon.ico" />
+    <Content Include="public\stylesheets\bootstrap.min.css" />
+    <Content Include="public\img\style.css" />
+    <Content Include="public\stylesheets\style.css" />
+    <Content Include="public\stylesheets\style_rank.css" />
+    <Content Include="public\webfonts\fa-brands-400.eot" />
+    <Content Include="public\webfonts\fa-brands-400.svg" />
+    <Content Include="public\webfonts\fa-brands-400.ttf" />
+    <Content Include="public\webfonts\fa-brands-400.woff" />
+    <Content Include="public\webfonts\fa-brands-400.woff2" />
+    <Content Include="public\webfonts\fa-regular-400.eot" />
+    <Content Include="public\webfonts\fa-regular-400.svg" />
+    <Content Include="public\webfonts\fa-regular-400.ttf" />
+    <Content Include="public\webfonts\fa-regular-400.woff" />
+    <Content Include="public\webfonts\fa-regular-400.woff2" />
+    <Content Include="public\webfonts\fa-solid-900.eot" />
+    <Content Include="public\webfonts\fa-solid-900.svg" />
+    <Content Include="public\webfonts\fa-solid-900.ttf" />
+    <Content Include="public\webfonts\fa-solid-900.woff" />
+    <Content Include="public\webfonts\fa-solid-900.woff2" />
+    <Content Include="public\webfonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="public\webfonts\glyphicons-halflings-regular.woff" />
+    <Content Include="public\webfonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="public\img\glyphicons-halflings-white.png" />
+    <Content Include="public\img\glyphicons-halflings.png" />
+    <Content Include="public\img\loginbg1.jpg" />
+    <Content Include="public\stylesheets\bootstrap-responsive.css" />
+    <Content Include="public\stylesheets\bootstrap.css" />
+    <Content Include="public\stylesheets\fontawesome.min.css" />
+    <Content Include="public\images\login.css" />
+    <Content Include="public\stylesheets\templatemo-style.css" />
+    <Content Include="README.md" />
+    <Content Include="views\ajax.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="comment.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\comment.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\displaycomment.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\ex.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="index.pug" />
+    <Content Include="views\admin.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\index.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="layout.pug" />
+    <Content Include="views\error.pug" />
+    <Content Include="views\layout.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\list.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\listitem.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\login.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\login1.pug" />
+    <Content Include="views\loginout.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="reg.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="problems.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\problems.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\rank.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\reg.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="test.pug">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="views\user.pug">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="public\" />
+    <Folder Include="public\images\" />
+    <Folder Include="public\img\" />
+    <Folder Include="public\javascripts\" />
+    <Folder Include="public\webfonts\" />
+    <Folder Include="public\stylesheets\" />
+    <Folder Include="routes\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

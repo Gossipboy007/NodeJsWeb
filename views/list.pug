@@ -1,0 +1,45 @@
+﻿block foot
+  doctype html
+  html
+    head
+      meta(charset='utf-8')
+      title LeafCTF
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      link(rel='stylesheet', href='https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
+      style.
+        body {
+        padding-top: 50px;
+        padding-left: 50px;
+        }
+    body
+      .navbar.navbar-fixed-top.navbar-inverse(role='navigation')
+        .container
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#') LeafCTF
+          .collapse.navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a(href='#')
+                  span.glyphicon.glyphicon-home
+                  |  主页
+              
+              li
+                a(href='#help')
+                  span.glyphicon.glyphicon-heart
+                  |  帮助
+              li
+                a(href='#shop')
+                  span.glyphicon.glyphicon-user
+                  |  登录
+              li 
+                a(href='#login')
+                  span.glyphicon.glyphicon-plus
+                  |  注册
+          script(src='https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js')
+          script(src='https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js')

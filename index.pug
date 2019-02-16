@@ -1,0 +1,88 @@
+﻿extends layout
+block foot
+  head
+    style.
+      .bar ul{
+      display:flex;
+      background:#FF0000;
+      }
+      .bar ul li{
+      flex:1;
+      margin-right:40px;
+      text-indent:0px;
+      }
+      .login{
+      float:right;
+      margin-right:100px;
+      margin-top:20px;
+      }
+      .bar{
+      height:50px;
+      }
+      .head{
+      min-width:650px;
+      }
+      .content{
+      display:flex;
+      }
+      .left{
+      flex:1;
+      }
+      .right{
+      flex:1;
+      background:#778899;
+      }
+      .img{
+      margin-left:20px;
+      }
+      .con{
+      margin-top:30px;
+      margin-left:20px;
+      width:353px;
+      }
+      .foot ul{
+      display:flex;
+      flex-direction:column;
+      }
+      .foot ul li{
+      flex:1;
+      color:red;
+      }
+  body
+    .bar
+      ul
+        li
+          a(href='/content') 首页
+        li 
+          a(href='/displaycontent') 学院概况
+        li 
+          a(href='/ajax') 最新动态
+        li 
+          a(href='/rank') 人才培养
+        li 科学研究
+        li 学生工作
+        li 师资队伍
+        li 招生就业
+        li 党务人事
+        li 学术交流
+        li 下载中心
+    .content
+      .left
+        img(src='http://img2.zjolcdn.com/pic/003/001/876/00300187697_02cb25fe.jpg', width='600px')
+      .right
+        .news
+          ul
+            li 焦点新闻
+          .img
+            img(src='https://images.shobserver.com/news/690_390/2017/10/18/691cd517-8984-4b74-a391-525d6ea9d123.jpg', width='353px', height='150px')
+          .con
+            | 2017年10月18日上午9:00，中国共产党第十九次全国代表大会在人民大会堂开幕。
+            | 习近平代表第十八届中央委员会向大会作了题为《决胜全面建成小康社会 夺取新时代中国特色社会主义伟大胜利》的报告。
+        ul
+          li 川大新闻
+          li 更多
+    .foot
+      ul
+        li 一u好读书发送剋i哦佛的司法活动可否考虑
+        li 二
+        li 三

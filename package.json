@@ -1,0 +1,29 @@
+{
+  "name": "express-app1",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "description": "ExpressApp1",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.0",
+    "debug": "^2.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.14.0",
+    "express-session": "^1.15.6",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.3.16",
+    "morgan": "^1.7.0",
+    "mssql": "^5.0.0-alpha.1",
+    "multer": "^1.4.1",
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "^2.3.0",
+    "supervisor": "^0.12.0"
+  }
+}

@@ -1,0 +1,160 @@
+﻿-var name_1;
+-var out;
+-if(name=='登录'){
+-name_1='login';
+-out='help';
+-}else{
+-name_1='user';
+-out='loginout';
+-}
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    link(href='https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+    title abCTF
+    link(rel='shortcut icon', href='/img/favicon_3.ico')
+    link(rel='bookmark', href='/img/favicon_3.ico')
+  body
+    .navbar.navbar-default.navbar-static-top(style='margin-bottom: 0')
+      ul.nav.navbar-nav
+        li.active
+          a(href='/')
+            span.glyphicon.glyphicon-home
+            | abCTF
+        li
+          a(href='/problems') 题目列表
+        li
+          a(href='/rank') 排行榜
+        li
+          a(href='/comment') 留言板
+      ul.nav.navbar-nav.pull-right
+        li
+          a(href='#myModal', data-toggle='modal')
+            span.glyphicon.glyphicon-user
+            |  #{name}
+        li
+          a(href=out)
+            span.glyphicon.glyphicon-log-in
+            |  #{outuser}
+    div(role='main')
+      .jumbotron
+        .container
+          h1 Welcome!
+          p
+            | Welcome to abCTF!
+            | ここで、あなたは別の1種の風格を体験することを体験して！まずアカウントを登録してログインしてください！
+      .container
+        .panel.panel-default.shadow-border
+          .container
+            .panel-heading
+              h1
+                | abCTF 
+                small 简介
+            .text-info
+              p
+                | 皆さんはTFboysをご存知でしょう。
+                | 私たちabcは次のCTFboysになります！滑稽です。
+                | どう思う？
+              p
+                | 众芳摇落独暄妍，占尽风情向小园。
+                | 疏影横斜水清浅，暗香浮动月黄昏。
+                | 霜禽欲下先偷眼，粉蝶如知合断魂。
+                | 幸有微吟可相狎，不须檀板共金尊。
+    .navbar.navbar-default.navbar-fixed-bottom
+      .container.text-center
+        h4
+          span.glyphicon.glyphicon-copyright-mark
+          |  Team abCTF
+    #myModal.modal.fade(aria-labelledby='myTitle', aria-hidden='true', style='display: none;')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(data-dismiss='modal', aria-hidden='true') ×
+            h4#myTitle.modal-title Log in
+          .modal-body
+            .container-fluid
+              .form-group
+                input.form-control(type='text', placeholder='Username')
+              .form-group
+                input.form-control(type='password', placeholder='Password')
+              #alert-login.collapse
+                .alert.alert-danger 用户名或密码不正确！
+              #alert-reg.collapse
+                .alert.alert-danger 您的输入为空！请检查！
+              #alert-regsuc.collapse
+                .alert.alert-success 注册成功！请登录！即将跳转！
+              #alert-logsuc.collapse
+                .alert.alert-success 登录成功！即将跳转至主页！
+              .row
+                .col-md-offset-8
+                  button.btn.btn-success 登录
+                  button.btn.btn-warning 注册
+                  button#btn-log-togggle.collapse(data-toggle='collapse', data-target='alert-login')
+                  button#btn-reg-togggle.collapse(data-toggle='collapse', data-target='alert-reg')
+                  button#btn-regsuc-togggle.collapse(data-toggle='collapse', data-target='alert-regsuc')
+                  button#btn-logsuc-togggle.collapse(data-toggle='collapse', data-target='alert-logsuc')
+  script(src='https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
+  script(type='text/javascript').
+    $(function() {
+    $(".btn-success").on('click', function(req,res) {  
+    var username = $("input:nth-of-type(1)").val();   
+    var password = $("input[ type='password' ]").val();
+    $.post("/login", { 
+    username: username,
+    password:password,
+    }, function(res) {
+    $.ajax({
+    url: '/',
+    type: 'get',
+    success: function(data) {
+    if(res.data=='用户名或密码不正确！'){
+    $('#btn-log-toggle').delay(500).click()
+    $('#alert-login').delay(500).fadeIn()
+    $('#btn-log-toggle').delay(500).click()
+    $('#alert-login').delay(500).fadeOut()
+    }else{
+    $('#btn-logsuc-toggle').delay(500).click()
+    $('#alert-logsuc').delay(500).fadeIn()
+    $('#btn-logsuc-toggle').delay(1000).click()
+    $('#alert-logsuc').delay(500).fadeOut()
+    setTimeout("window.location.reload()",4000);
+    }
+    }
+    })
+    })
+    })
+    })
+  script(type='text/javascript').
+    $(function() {
+    $(".btn-warning").on('click', function(req,res) {  
+    var username = $("input:nth-of-type(1)").val();   
+    var password = $("input[ type='password' ]").val();
+    $.post("/reg", { 
+    username: username,
+    password:password,
+    }, function(res) {
+    $.ajax({
+    url: '/',
+    type: 'get',
+    success: function(data) {
+    if(res.data=='错误！'){
+    $('#btn-reg-toggle').delay(500).click()
+    $('#alert-reg').delay(500).fadeIn()
+    $('#btn-reg-toggle').delay(500).click()
+    $('#alert-reg').delay(500).fadeOut()
+    }else{
+    $('#btn-regsuc-toggle').delay(500).click()
+    $('#alert-regsuc').delay(500).fadeIn()
+    $('#btn-regsuc-toggle').delay(500).click()
+    $('#alert-regsuc').delay(500).fadeOut()
+    setTimeout("window.location.reload()",4000);
+    }
+    }
+    })
+    })
+    })
+    })
+

@@ -1,0 +1,66 @@
+.shadow-border{
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+}
+.list-index{
+  width: 10%;
+}
+.list-title{
+  width: 70%;
+}
+.list-score{
+  width: 15%;
+  text-align: center;
+}
+.list-status{
+  width: 5%;
+  text-align: center;
+}
+.list-name{
+  width:65%;
+  text-align: center;
+  font-size: 18px;
+}
+.list-time{
+  width:35%;
+  text-align: center;
+  font-size: 16px;
+}
+.comment-block{
+  border-bottom: 1px solid #ddd;
+}
+.comment-user{
+  color:#6d757a;
+  font-weight: bold;
+  vertical-align: middle;
+  font-size: 13px;
+}
+.comment-footer{
+  color: #99a2aa;
+  line-height: 26px;
+  font-size: 12px;
+}
+.comment-text{
+  text-indent: 2em;
+}
+td a{
+  color: #777;
+}
+.btn{
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn-submit{
+  color: #6c757d;
+  background-color: transparent;
+  background-image: none;
+  border-color: #6c757d;
+}
+.btn-trans{
+  border-color:transparent;
+  background-color: transparent;
+}
+.board-label{
+  color: #aaa;
+}
+.comment-hid{
+  border-top:1px solid #ddd;
+}

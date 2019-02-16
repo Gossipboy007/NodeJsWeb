@@ -1,0 +1,349 @@
+﻿-var status
+-var i=info
+-if(stat==1){
+-status=1;
+-}else{
+-status=0;}
+-var name_1;
+-var out;
+-if(name=='登录'){
+-name_1='login';
+-out='reg';
+-}else{
+-name_1='user';
+-out='loginout';
+-}
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    link(href='https://cdn.bootcss.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+    title Problems
+  body
+    .navbar.navbar-default.navbar-static-top
+      ul.nav.navbar-nav
+        li
+          a(href='/')
+            span.glyphicon.glyphicon-home
+            | abCTF
+        li.active
+          a(href='problems') 题目列表
+        li
+          a(href='rank') 排行榜
+        li
+          a(href='comment') 留言板
+      ul.nav.navbar-nav.pull-right
+        li
+          a(href='', data-toggle='modal')
+            span.glyphicon.glyphicon-log-in
+            |  #{name}
+        li
+          a(href=out)
+            span.glyphicon.glyphicon-user
+            |  #{outuser}
+    .container.shadow-border
+      ul.nav.nav-tabs(style='margin-top: 9px')
+        li.active(role='presentation')
+          a(href='#web', data-toggle='tab') Web
+        li(role='presentation')
+          a(href='#misc', data-toggle='tab') MISC
+        li(role='presentation')
+          a(href='#reverse', data-toggle='tab') Reverse
+        li(role='presentation')
+          a(href='#crypto', data-toggle='tab') Crypto
+        li(role='presentation')
+          a(href='#pwn', data-toggle='tab') Pwn
+      .container-fluid
+        .tab-content
+          #web.tab-pane.fade.in.active
+            table.table
+              thead
+                tr
+                  th.list-index
+                  th.list-title Title
+                  th.list-score Score
+                  th.list-status Status
+              tbody
+                tr
+                  th.list-index 1
+                  td.list-title
+                    a#link-web-1(href='#problem-modal', data-toggle='modal') Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  td.list-score 500
+                  td.list-status -
+                tr
+                  th.list-index 2
+                  td.list-title
+                    a#link-web-2(href='#problem-modal', data-toggle='modal') URLdecode
+                  td.list-score 40
+                  td.list-status -
+                tr
+                  th.list-index 3
+                  td.list-title
+                    a#link-web-3(href='#problem-modal', data-toggle='modal') 速度要快
+                  td.list-score 80
+                  td.list-status √
+          #misc.tab-pane.fade
+            table.table
+              thead
+                tr
+                  th.list-index
+                  th.list-title Title
+                  th.list-score Score
+                  th.list-status Status
+              tbody
+                tr
+                  th.list-index 1
+                  td.list-title
+                    a#link-misc-1(href='#problem-modal', data-toggle='modal') 这是一张单纯的图片
+                  td.list-score 50
+                  td.list-status √
+          #reverse.tab-pane.fade
+            table.table
+              thead
+                tr
+                  th.list-index
+                  th.list-title Title
+                  th.list-score Score
+                  th.list-status Status
+              tbody
+                tr
+                  th.list-index 1
+                  td.list-title
+                    a#link-reverse-1(href='#problem-modal', data-toggle='modal') Easy_Re
+                  td.list-score 60
+                  td.list-status -
+          #crypto.tab-pane.fade
+            table.table
+              thead
+                tr
+                  th.list-index
+                  th.list-title Title
+                  th.list-score Score
+                  th.list-status Status
+              tbody
+                tr
+                  th.list-index 1
+                  td.list-title
+                    a#link-crypto-1(href='#problem-modal', data-toggle='modal') 散乱的密文
+                  td.list-score 60
+                  td.list-status -
+          #pwn.tab-pane.fade
+            table.table
+              thead
+                tr
+                  th.list-index
+                  th.list-title Title
+                  th.list-score Score
+                  th.list-status Status
+              tbody
+                tr
+                  th.list-index 1
+                  td.list-title
+                    a#link-pwn-1(href='#problem-modal', data-toggle='modal') u can get
+                  td.list-score 100
+                  td.list-status -
+      .navbar.navbar-default.navbar-fixed-bottom
+        .container.text-center
+          h4
+            span.glyphicon.glyphicon-copyright-mark
+            |  Team abCTF
+      #problem-modal.modal.fade(aria-hidden='true', aria-labelledby='myModalLabel')
+        .modal-dialog
+          .modal-content
+            .modal-body
+              button.close(type='button', data-dismiss='modal', aria-label='Close')
+                span(aria-hidden='true') ×
+              ul.nav.nav-tabs
+                li.active(role='presentation')
+                  a#modal-tog(href='#challenge', data-toggle='tab') Challenge
+                li(role='presentation')
+                  a(href='#solves', data-toggle='tab') 100 Solves
+                li(role='presentation')
+                  a(href='#comment', data-toggle='tab') Comment
+              .tab-content
+                #challenge.tab-pane.fade.in.active
+                  div(role='title')
+                    h2#problem-title.text-center Lorem
+                    h3#problem-score.text-center 500
+                  div(role='desc')
+                    span.board-label
+                      | Description
+                    p#problem-desc
+                      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae blanditiis cupiditate debitis deserunt doloribus, est fugiat natus nobis non nostrum odit, optio pariatur possimus quia quis suscipit vitae voluptas, voluptatum.
+                  div(role='url')
+                    span.board-label
+                      | URL
+                    p
+                      a#problem-url(href='http://67.216.213.125') http://67.216.213.125
+                  .row
+                    .col-md-10.form-group
+                      input.form-control(type='text', placeholder='Flag',name='flag')
+                      span
+                        font#error(color='red')
+                    .col-md-2.form-group
+                      button.btn.btn-submit(type='submit') Submit
+                #solves.tab-pane.fade
+                  table.table.table-striped
+                    thead
+                      tr
+                        th.list-name Name
+                        th.list-time Time
+                    tbody
+                      tr
+                        td.list-name Solve1
+                        td.list-time 1 month ago
+                      tr
+                        td.list-name Solve2
+                        td.list-time 1 month ago
+                      tr
+                        td.list-name Solve3
+                        td.list-time 1 month ago
+                      tr
+                        td.list-name Solve4
+                        td.list-time 1 month ago
+                #comment.tab-pane.fade
+                  #comment-1.comment-block
+                    .container-fluid
+                      .row
+                        .col-md-2
+                          p.comment-user User01
+                      .container-fluid
+                        p.comment-text 这是一条评论
+                        p.comment-text 一共两行
+                      .row
+                        .col-md-1.comment-footer
+                          span #1
+                        .col-md-3.comment-footer
+                          span
+                            | 1900-01-01 00:00
+                        .btn-group.btn-group-xs.pull-right
+                          button.btn.btn-default.btn-trans
+                            span.glyphicon.glyphicon-thumbs-up
+                            |  999
+                          button.btn.btn-default.btn-trans
+                            span.glyphicon.glyphicon-thumbs-down
+                            |  1
+                  #comment-2.comment-block
+                    .container-fluid
+                      .row
+                        .col-md-2
+                          p.comment-user User02
+                      .container-fluid
+                        p.comment-text 这是一条评论
+                        p.comment-text 一共两行
+                      .row
+                        .col-md-1.comment-footer
+                          span #2
+                        .col-md-3.comment-footer
+                          span
+                            | 2018-12-19 11:45
+                        .btn-group.btn-group-xs.pull-right
+                          button.btn.btn-default.btn-trans
+                            span.glyphicon.glyphicon-thumbs-up
+                            |  9
+                          button.btn.btn-default.btn-trans
+                            span.glyphicon.glyphicon-thumbs-down  
+                  #comment-3.comment-block
+                    .container-fluid
+                      .row
+                        .col-md-2
+                          p.comment-user admin
+                      .container-fluid
+                        p.comment-text
+                          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto atque, culpa dolores dolorum error esse facilis, fugiat harum id illum in laboriosam maiores natus possimus quod reprehenderit sapiente suscipit vero!
+                      .row
+                        .col-md-1.comment-footer
+                          span #3
+                        .col-md-3.comment-footer
+                          span
+                            | 2018-12-19 11:47
+                        .btn-group.btn-group-xs.pull-right
+                          button.btn.btn-default.btn-trans
+                            span.glyphicon.glyphicon-thumbs-up
+                            |  9999
+                          button.btn.btn-default.btn-trans
+                            span.glyphicon.glyphicon-thumbs-down  
+                  .row.panel-body
+                    .col-md-10.form-group
+                      input.form-control(type='text', placeholder='Comment...')
+                    .col-md-2.form-group
+                      button.btn.btn-submit(type='submit') Submit
+    script.
+      $("#link-web-1").click(function(){
+      $("#problem-title")[0].innerText="Lorem";
+      $("#problem-score")[0].innerText="500";
+      $("#problem-desc")[0].innerHTML="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae blanditiis cupiditate debitis deserunt doloribus, est fugiat natus nobis non nostrum odit, optio pariatur possimus quia quis suscipit vitae voluptas, voluptatum.";
+      $("#problem-url")[0].href="http://67.216.213.125";
+      $("#problem-url")[0].innerText="http://67.216.213.125";
+      });
+      $("#link-web-2").click(function () {
+      $("#problem-title")[0].innerText="URLdecode";
+      $("#problem-score")[0].innerText="40";
+      $("#problem-desc")[0].innerHTML="<p>真是奇怪的要求</p><p>flag格式:flag{xxx}</p>";
+      $("#problem-url")[0].href="http://ctf.sunyq.xin/URLdecode/";
+      $("#problem-url")[0].innerText="URLdecode";
+      });
+      $("#link-web-3").click(function(){
+      $("#problem-title")[0].innerText="速度要快";
+      $("#problem-score")[0].innerText="80";
+      $("#problem-desc")[0].innerHTML="<p>速度要快！！！！！！</p><p>flag格式:KEY{xxx}</p>";
+      $("#problem-url")[0].href="http://123.206.87.240:8002/web6/";
+      $("#problem-url")[0].innerText="速度要快";
+      });
+      $("#link-misc-1").click(function(){
+      $("#problem-title")[0].innerText="这是一张单纯的图片";
+      $("#problem-score")[0].innerText="50";
+      $("#problem-desc")[0].innerHTML="FLAG在哪里？？";
+      $("#problem-url")[0].href="http://123.206.87.240:8002/misc/1.jpg";
+      $("#problem-url")[0].innerText="1.jpg";
+      });
+      $("#link-reverse-1").click(function(){
+      $("#problem-title")[0].innerText="Easy_Re";
+      $("#problem-score")[0].innerText="60";
+      $("#problem-desc")[0].innerHTML="<p>flag格式:DUTCTF{xxx}</p><p>Hint:逆向常用的工具有IDA 、ollydbg</p>";
+      $("#problem-url")[0].href="https://ctf.bugku.com/files/9275b6de25ac17d9c202fc080273876f/re1.exe";
+      $("#problem-url")[0].innerText="re1.exe";
+      });
+      $("#link-crypto-1").click(function(){
+      $("#problem-title")[0].innerText="散乱的密文";
+      $("#problem-score")[0].innerText="60";
+      $("#problem-desc")[0].innerHTML="<p>lf5{ag024c483549d7fd@@1}</p><p>一张纸条上凌乱的写着2 1 6 5 3 4</p>";
+      $("#problem-url")[0].href="";
+      $("#problem-url")[0].innerText="";
+      });
+      $("#link-pwn-1").click(function(){
+      $("#problem-title")[0].innerText="u can get";
+      $("#problem-score")[0].innerText="100";
+      $("#problem-desc")[0].innerHTML="<p>get it get it!!!!!!</p><p>nc 119.23.206.23 10004</p>";
+      $("#problem-url")[0].href="https://www.lanzous.com/i2e0dti";
+      $("#problem-url")[0].innerText="u_can_get";
+      });
+      $("[id*='link-']").click(function(){
+      $("#modal-tog").click();
+      });
+  script(src='https://cdn.bootcss.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js')
+  script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+  script(type='text/javascript').
+    $(function() {
+    $(".btn-submit").on('click', function(req,res) {  
+    var flags = $("input:nth-of-type(1)").val();   
+    var scores = $("#problem-score")[0].innerText; 
+    $.post("/problems", { 
+    flag: flags,
+    score:scores,
+    }, function(res) {
+    $.ajax({
+    url: '/problems',
+    type: 'get',
+    success: function(data) {
+    $('#error').text(res.data)
+    $('#error').delay(3000).fadeOut()
+    }
+    })
+    $('#error').delay(1000).fadeIn()
+    })
+    })
+    })
+    
